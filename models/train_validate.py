@@ -54,16 +54,12 @@ def train_valid_run(kfold_info, config, network_model, transformed_dataset, loss
     constrained_bias_layers = config.constrained_bias_layers
     scal = config.velocity_scale
     training_data_path = config.training_data_path
+    save_folder = config.save_folder
 
     # K-fold Cross Validation model evaluation
     fold = kfold_info['fold']
     train_ids = kfold_info['train_ids']
     valid_ids = kfold_info['valid_ids']
-
-    # Make the folder that stores the results
-    save_folder = config.save_folder
-    if fold==1 and not os.path.exists(save_folder):
-        os.makedirs(save_folder)
 
     # Save config info to a log file
     if fold == 1:

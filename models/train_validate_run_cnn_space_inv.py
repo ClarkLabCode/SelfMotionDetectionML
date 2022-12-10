@@ -64,6 +64,10 @@ def main(_):
                                 f'Dcnn{_FLAGS.D_cnn}_C{_FLAGS.C}_k{_FLAGS.k}_' + \
                                 _FLAGS.config.activationf + f'_R{_FLAGS.R}/'
 
+    # Make the folder that stores the results
+    if not os.path.exists(_FLAGS.config.save_folder):
+        os.makedirs(_FLAGS.config.save_folder)
+
     # model
     network_model = models.CNNSpaceInv(D_cnn=_FLAGS.D_cnn, C=_FLAGS.C, k=_FLAGS.k, od=_FLAGS.config.od, activationf=_FLAGS.config.activationf, T=_FLAGS.config.T)
 
